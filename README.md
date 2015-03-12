@@ -60,16 +60,38 @@ Call the static member `MangerCSV.CSVHelepr.GetCSVString`, by passing the follow
 
 It works by flattening out each object of the list into an ExpandoObject (a dictionary), by using reflection. Nested properties are renamed and brought to the root of the object.
 
-## Idea
+## Original idea
 
-Idea came from these JSON to CSV converters:
+The original idea came from these JSON to CSV converters:
 
 * http://konklone.io/json/
 * https://json-csv.com/
 
-I needed something that supported nested properties and heterogeneous objects (with different properties). I also posted the core of this solution as an answer in `StackOverflow`:
+I needed something that supported nested properties and heterogeneous objects (ie: objects with different properties). I also posted the core of this solution as an answer in [StackOverflow](http://stackoverflow.com/questions/27734201/serializing-a-list-of-dynamic-objects-to-a-csv-with-servicestack-text)
 
-* http://stackoverflow.com/questions/27734201/serializing-a-list-of-dynamic-objects-to-a-csv-with-servicestack-text
+There is `ServiceStack.Text` that lets you create CSV from a `List<dynamic>`, **but** it doesn't handle nested properties the way I wanted. It renders them to `JSON`, without "flattening", eg:
+
+   List<dynamic> list = new List<dynamic>();
+   list.Add(new
+   {
+         name = "john", 
+         pet = new 
+         { 
+              name = "doggy"
+         }
+   });
+
+   string csv = CsvSerializer.SerializeToCsv(list);
+   
+The result is this CSV:
+
+    name, pet
+    "john", { name = "doggy" }
+    
+With `MangerCSVHelper` you will get this:
+
+    name, pet__name
+    "john", "doggy"
 
 ## TO DOs
 
