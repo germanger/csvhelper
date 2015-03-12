@@ -71,17 +71,17 @@ I needed something that supported nested properties and heterogeneous objects (i
 
 There is `ServiceStack.Text` that lets you create CSV from a `List<dynamic>`, **but** it doesn't handle nested properties the way I wanted. It renders them to `JSON`, without "flattening", eg:
 
-   List<dynamic> list = new List<dynamic>();
-   list.Add(new
-   {
-         name = "john", 
-         pet = new 
-         { 
-              name = "doggy"
-         }
-   });
-
-   string csv = CsvSerializer.SerializeToCsv(list);
+    List<dynamic> list = new List<dynamic>();
+    list.Add(new
+    {
+          name = "john", 
+          pet = new 
+          { 
+               name = "doggy"
+          }
+    });
+    
+    string csv = CsvSerializer.SerializeToCsv(list);
    
 The result is this CSV:
 
