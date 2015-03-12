@@ -51,10 +51,10 @@ Include the MangerCSV.dll in your project
 
 Call the static member `MangerCSV.CSVHelepr.GetCSVString`, by passing the following parameters:
 
-* inputList: List of dynamic objects
-* cultureInfo: Default is InvariantCulture. This parameter is relevant when converting decimal numbers to string.
-* columnDelimiter: Default is `";"`
-* dateFormat: Default is `"yyyy-MM-dd"`
+* `inputList`: List of dynamic objects. They don't need to have the same structure and they can also have nested properties.
+* `cultureInfo`: Default is `InvariantCulture`. This parameter is relevant when converting decimal numbers to string.
+* `columnDelimiter:` Default is `";"`
+* `dateFormat`: Default is `"yyyy-MM-dd"`
 
 ## Algorithm
 
@@ -67,7 +67,7 @@ Idea came from these JSON to CSV converters:
 * http://konklone.io/json/
 * https://json-csv.com/
 
-I needed something that supported nested properties and heterogeneous objects (with different properties). I Also posted the core of this solution as an answer in `StackOverflow`:
+I needed something that supported nested properties and heterogeneous objects (with different properties). I also posted the core of this solution as an answer in `StackOverflow`:
 
 * http://stackoverflow.com/questions/27734201/serializing-a-list-of-dynamic-objects-to-a-csv-with-servicestack-text
 
