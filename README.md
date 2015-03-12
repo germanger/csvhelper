@@ -47,7 +47,9 @@ As you can see, if an item of the list doesn't have a property, it is left in bl
 
 ## Usage
 
-Call the static member `GetCSVString`, by passing the following parameters:
+Include the MangerCSV.dll in your project
+
+Call the static member `MangerCSV.CSVHelepr.GetCSVString`, by passing the following parameters:
 
 * inputList: List of dynamic objects
 * cultureInfo: Default is InvariantCulture. This parameter is relevant when converting decimal numbers to string.
