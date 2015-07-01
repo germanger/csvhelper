@@ -45,6 +45,22 @@ And the resultant CSV string is:
     
 As you can see, if an item of the list doesn't have a property, it is left in blank. Also nested properties are expressed with a "`__`" in the header (eg: `instrument__brand__name`)
 
+Please notice that if one of the properties is a collection,
+
+    List<dynamic> heterogeneousList = new List<dynamic>()
+    {
+        new 
+        {
+            name = "German",
+            pets = new List<Pet>,
+        }
+    }
+    
+The collection is not going to be printed. The output will be something like:
+
+    name;pets
+    German;[System.Collections.Generic.List];
+
 ## Usage
 
 Include the MangerCSV.dll in your project
