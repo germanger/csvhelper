@@ -19,7 +19,7 @@ namespace MangerCSV
         /// <param name="nullString">Default is "null"</param>
         /// <param name="dateFormat">Default is "yyyy-MM-dd"</param>
         /// <returns></returns>
-        public static string GetCSVString(List<dynamic> inputList, CultureInfo cultureInfo = null, string columnDelimiter = ";", string nullString = "null", string dateFormat = "yyyy-MM-dd")
+        public static string GetCSVString(List<dynamic> inputList, CultureInfo cultureInfo = null, string columnDelimiter = ";", string nullString = "null", string dateFormat = "yyyy-MM-dd HH:mm:ss")
         {
             if (cultureInfo == null)
             {
